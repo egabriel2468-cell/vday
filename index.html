@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Xitlalic 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+      font-family: 'Quicksand', sans-serif;
+      color: #4a2c3a;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 60px 25px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    .letter {
+      background: rgba(255,255,255,0.75);
+      padding: 35px;
+      border-radius: 20px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .letter p {
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      text-align: right;
+    }
+
+    .music {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    button {
+      background: #ff7aa2;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff5c8a;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Hi Xitlalic 💖</h1>
+    <h2>This is just for you</h2>
+
+    <div class="music">
+      <button onclick="toggleMusic()">Play our song 🎶</button>
+      <audio id="song">
+        <source src="https://archive.org/download/mac-miller-congratulations/Mac%20Miller%20-%20Congratulations.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <div class="letter">
+      <p>
+        I wish I could hand you this letter in person, sit next to you, and watch your face as you read it.
+        But until distance stops being rude, this will have to do.
+      </p>
+
+      <p>
+        Loving you from far away isn’t always easy, but it’s always worth it.
+        You’re my favorite notification, my favorite thought, and somehow the calm in my chaos.
+      </p>
+
+      <p>
+        I love the way you exist so naturally in my life.
+        The way you support me, laugh with me, and make even ordinary days feel lighter.
+        Even from miles away, you make me feel close.
+      </p>
+
+      <p>
+        One day, distance won’t be part of our story anymore.
+        Until then, just know that every day I’m choosing you,
+        and I’m so proud of us for making this work.
+      </p>
+
+      <p>
+        Happy Valentine’s Day, my love.
+        Thank you for being you.
+      </p>
+
+      <div class="signature">
+        Always yours 🤍
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMusic() {
+      const song = document.getElementById("song");
+      if (song.paused) {
+        song.play();
+      } else {
+        song.pause();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 600);
+  </script>
+</body>
+</html>
