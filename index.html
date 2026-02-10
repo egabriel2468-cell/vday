@@ -81,6 +81,15 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+    @media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr !important;
+  }
+
+  .photo-card img {
+    height: 280px;
+  }
+}
     .photo-card {
   background: rgba(255,255,255,0.85);
   border-radius: 18px;
@@ -131,15 +140,6 @@
         transform: translateY(-110vh);
         opacity: 0;
       }
-      @media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  .photo-card img {
-    height: 260px;
-  }
-}
 }
 
     }
