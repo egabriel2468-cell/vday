@@ -375,6 +375,11 @@
     }
 
     setInterval(createHeart, 600);
+
+    function playVoice() {
+  const voice = document.getElementById("voice");
+  voice.play();
+}
   </script>
   
   <div class="closing">
@@ -394,11 +399,6 @@
     <source src="iloveyou.mp3" type="audio/mpeg">
   </audio>
 </div>
-  
-    function playVoice() {
-  const voice = document.getElementById("voice");
-  voice.play();
-}
 
 </div>
 
