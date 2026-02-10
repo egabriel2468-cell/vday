@@ -184,34 +184,24 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   overflow: hidden;
 }
 
-.floating-hearts::before,
-.floating-hearts::after {
-  content: "💗 💜 💕 💜 💗 💕";
+.floating-hearts span {
   position: absolute;
-  width: 100%;
-  height: 200%;
-  left: 0;
-  top: -50%;
-  font-size: 22px;
-  opacity: 0.12;
-  animation: floatBackground 40s linear infinite;
+  bottom: -10%;
+  font-size: 20px;
+  opacity: 0.15;
+  animation: bgFloat 30s linear infinite;
 }
 
-.floating-hearts::after {
-  animation-duration: 60s;
-  opacity: 0.08;
-}
-
-@keyframes floatBackground {
+@keyframes bgFloat {
   from {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-50%);
+    transform: translateY(-120vh);
   }
 }
 
@@ -226,6 +216,14 @@
   <span class="rose top-right">🌹</span>
   <span class="rose bottom-left">🌹</span>
   <span class="rose bottom-right">🌹</span>
+</div>
+  
+<div class="floating-hearts">
+  <span style="left:10%">💗</span>
+  <span style="left:30%">💜</span>
+  <span style="left:50%">💕</span>
+  <span style="left:70%">💜</span>
+  <span style="left:90%">💗</span>
 </div>
 
   <div class="floating-hearts"></div>
