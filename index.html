@@ -10,7 +10,7 @@
     body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #fdf1f6, #f4ecff);
+  background: linear-gradient(135deg, #fce7f1, #eee6ff);
   background-image:
     repeating-linear-gradient(
       0deg,
@@ -21,6 +21,7 @@
     );
   font-family: 'Quicksand', sans-serif;
   color: #4a2c3a;
+  overflow-x: hidden;
 }
 
     .container {
@@ -148,6 +149,40 @@
         opacity: 0;
       }
 }
+    .floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: "💗 💜 💕 💜 💗 💕";
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  left: 0;
+  top: -50%;
+  font-size: 22px;
+  opacity: 0.12;
+  animation: floatBackground 40s linear infinite;
+}
+
+.floating-hearts::after {
+  animation-duration: 60s;
+  opacity: 0.08;
+}
+
+@keyframes floatBackground {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
 
     }
     
@@ -155,6 +190,8 @@
 </head>
 
 <body>
+  <div class="floating-hearts"></div>
+
   <div class="container">
     <h1>To: Xitlalic ❤️</h1>
     <h2>the most beautiful/gorgeous/pretty/sexcyness woman ever</h2>
