@@ -76,29 +76,7 @@
     button:hover {
       background: #ff5c8a;
     }
-
-    /* floating hearts */
-    .heart {
-      position: fixed;
-      bottom: -10px;
-      font-size: 20px;
-      animation: floatUp 8s linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
-      .photo-card {
+    .photo-card {
   background: rgba(255,255,255,0.85);
   border-radius: 18px;
   padding: 10px;
@@ -124,6 +102,29 @@
   line-height: 1.4;
   font-style: italic;
 }
+
+
+    /* floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
 
     }
     
