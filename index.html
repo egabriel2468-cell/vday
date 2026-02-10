@@ -264,6 +264,28 @@
       from { transform: translateY(0); opacity: 0; }
       to { transform: translateY(-110vh); opacity: 0; }
     }
+    .valentine-question {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #6b4fa3;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.valentine-subtext {
+  font-size: 1.2rem;
+  color: #4a2c3a;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.valentine-hint {
+  font-size: 0.95rem;
+  color: #7a5c87;
+  opacity: 0.85;
+  margin-bottom: 30px;
+  text-align: center;
+}
   </style>
 </head>
 
@@ -271,14 +293,21 @@
 
 <!-- ENVELOPE -->
 <div id="envelope-screen">
+
+  <h1 class="valentine-question">Be mine?</h1>
+  <p class="valentine-subtext">Will you be my Valentine?</p>
+  <p class="valentine-hint">Password arrives on Valentine’s Day 💕</p>
+
   <div class="envelope">
     <div class="envelope-top"></div>
     <div class="envelope-body"></div>
   </div>
+
   <p class="envelope-text">For Xitlalic 💌</p>
-  <input type="password" id="password" placeholder="Enter the password">
+
+  <input type="password" id="password" placeholder="Enter the password" />
   <button onclick="openEnvelope()">Open Letter</button>
-  <p id="error">That’s not quite right 🤍</p>
+  <p id="error">WRONG!! YOU HAVE TO WAIT! 🤍</p>
 </div>
 
 <!-- ROSE FRAME -->
