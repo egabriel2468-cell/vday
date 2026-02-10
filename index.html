@@ -130,32 +130,16 @@
         transform: translateY(-110vh);
         opacity: 0;
       }
+      @media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
 
     }
     
   </style>
 </head>
-<div class="photos">
-  <h2>Us 💕</h2>
-
-  <div class="gallery">
-    <div class="photo-card">
-      <img src="images/pic1.jpg" alt="Us together">
-      <p class="caption">My favorite place will</p>
-    </div>
-
-    <div class="photo-card">
-      <img src="images/pic2.jpg" alt="A special memory">
-      <p class="caption">One of my favorite memories with you</p>
-    </div>
-
-    <div class="photo-card">
-      <img src="images/pic3.jpg" alt="Love">
-      <p class="caption">Distance can’t change how I feel about you</p>
-    </div>
-  </div>
-</div>
-
 
 <body>
   <div class="container">
@@ -202,7 +186,26 @@
       </div>
     </div>
   </div>
+<div class="photos">
+  <h2>Us 💕</h2>
 
+  <div class="gallery">
+    <div class="photo-card">
+      <img src="images/pic1.jpg" alt="Us together">
+      <p class="caption">My favorite place will</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/pic2.jpg" alt="A special memory">
+      <p class="caption">One of my favorite memories with you</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/pic3.jpg" alt="Love">
+      <p class="caption">Distance can’t change how I feel about you</p>
+    </div>
+  </div>
+</div>
   <script>
     function toggleMusic() {
       const song = document.getElementById("song");
