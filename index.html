@@ -41,32 +41,38 @@
     }
 
     .envelope {
-      width: 200px;
-      height: 130px;
-      position: relative;
-      margin-bottom: 20px;
-    }
+  position: relative;
+  width: 260px;
+  height: 170px;
+  margin: 20px 0 30px;
+  perspective: 1000px;
+}
 
-    .envelope-body {
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      border-radius: 6px;
-      position: absolute;
-      bottom: 0;
-    }
+/* Front pocket */
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  z-index: 1;
+}
 
-    .envelope-top {
-      width: 0;
-      height: 0;
-      border-left: 100px solid transparent;
-      border-right: 100px solid transparent;
-      border-bottom: 65px solid #f2b8d8;
-      position: absolute;
-      top: 0;
-      transform-origin: top;
-      transition: transform 1s ease;
-    }
+/* Flap */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-bottom: 85px solid #f2b8d8;
+  transform-origin: top center;
+  transition: transform 1s ease;
+  z-index: 2;
+}
 
     .envelope-text {
       font-family: 'Playfair Display', serif;
@@ -299,8 +305,8 @@
   <p class="valentine-hint">Password arrives on Valentine’s Day 💕</p>
 
   <div class="envelope">
-    <div class="envelope-top"></div>
-    <div class="envelope-body"></div>
+    <div class="envelope-flap"></div>
+    <div class="envelope-pocket"></div>
   </div>
 
   <p class="envelope-text">For Xitlalic 💌</p>
@@ -394,7 +400,7 @@
     const correctPassword = "babadook";
     const input = document.getElementById("password").value;
     const screen = document.getElementById("envelope-screen");
-    const flap = document.querySelector(".envelope-top");
+    const flap = document.querySelector(".envelope-flap");
     const error = document.getElementById("error");
 
     if (input.toLowerCase() === correctPassword) {
