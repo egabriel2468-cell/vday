@@ -3,33 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Taly's Website</title>
+  <title>To: Xitlalic ❤️</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-   body {
-  margin: 0;
-  padding: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 192, 203, 0.12), transparent 45%),
-    radial-gradient(circle at bottom right, rgba(230, 210, 255, 0.12), transparent 45%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(0,0,0,0.02),
-      rgba(0,0,0,0.02) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    linear-gradient(135deg, #fde4ef, #efe6ff);
-  font-family: 'Quicksand', sans-serif;
-  color: #4a2c3a;
-  overflow-x: hidden;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,192,203,0.18), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(230,210,255,0.18), transparent 45%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,0.02),
+          rgba(0,0,0,0.02) 1px,
+          transparent 1px,
+          transparent 4px
+        ),
+        linear-gradient(135deg, #fde4ef, #efe6ff);
+      font-family: 'Quicksand', sans-serif;
+      color: #4a2c3a;
+      overflow-x: hidden;
+    }
 
+    /* ───────── ENVELOPE ───────── */
+    #envelope-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #fde4ef, #efe6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 1s ease;
+    }
+
+    .envelope {
+      width: 200px;
+      height: 130px;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .envelope-body {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .envelope-top {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 65px solid #f2b8d8;
+      position: absolute;
+      top: 0;
+      transform-origin: top;
+      transition: transform 1s ease;
+    }
+
+    .envelope-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    #password {
+      padding: 10px 14px;
+      border-radius: 20px;
+      border: none;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    #error {
+      color: #a33;
+      display: none;
+      font-size: 0.9rem;
+    }
+
+    /* ───────── ROSE FRAME ───────── */
+    .rose-frame {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .rose {
+      position: absolute;
+      font-size: 34px;
+      opacity: 0.16;
+    }
+
+    .tl-corner { top: 20px; left: 20px; }
+    .tl-horizontal { top: 20px; left: 80px; }
+    .tl-vertical { top: 80px; left: 20px; }
+
+    .tr-corner { top: 20px; right: 20px; }
+    .tr-horizontal { top: 20px; right: 80px; }
+    .tr-vertical { top: 80px; right: 20px; }
+
+    .bl-corner { bottom: 20px; left: 20px; }
+    .bl-horizontal { bottom: 20px; left: 80px; }
+    .bl-vertical { bottom: 80px; left: 20px; }
+
+    .br-corner { bottom: 20px; right: 20px; }
+    .br-horizontal { bottom: 20px; right: 80px; }
+    .br-vertical { bottom: 80px; right: 20px; }
+
+    /* ───────── FLOATING HEARTS (BACKGROUND) ───────── */
+    .floating-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating-hearts span {
+      position: absolute;
+      bottom: -10%;
+      font-size: 24px;
+      opacity: 0.15;
+      animation: bgFloat 30s linear infinite;
+    }
+
+    @keyframes bgFloat {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
+
+    /* ───────── CONTENT ───────── */
     .container {
       max-width: 700px;
       margin: auto;
       padding: 60px 25px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -38,48 +155,12 @@
       text-align: center;
       margin-bottom: 10px;
     }
-    .voice-btn {
-  margin-top: 25px;
-  background: #f2b8d8; /* soft pink */
-  color: #fff;
-  padding: 12px 26px;
-  border-radius: 30px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.voice-btn:hover {
-  background: #e79ac5;
-}
 
     h2 {
       text-align: center;
       font-weight: 400;
       font-size: 1.2rem;
       margin-bottom: 40px;
-    }
-
-    .letter {
-      background: rgba(255,255,255,0.75);
-      padding: 35px;
-      border-radius: 20px;
-      line-height: 1.8;
-      font-size: 1.05rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    .letter p {
-      margin-bottom: 20px;
-    }
-
-    .signature {
-      margin-top: 40px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.3rem;
-      text-align: right;
     }
 
     .music {
@@ -95,435 +176,197 @@
       color: white;
       border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
-    button:hover {
-      background: #b2a1d6;
+    button:hover { background: #b2a1d6; }
+
+    .letter {
+      background: rgba(255,255,255,0.75);
+      padding: 35px;
+      border-radius: 20px;
+      line-height: 1.8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
+
+    .signature {
+      margin-top: 40px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      text-align: right;
+    }
+
+    /* ───────── GALLERY ───────── */
     .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-    @media screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr !important;
-  }
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 25px;
+    }
 
-  .photo-card img {
-    height: 260px;
-  }
-}
-      .photo-card {
-  background: #ffffff;
-  border-radius: 6px;
-  padding: 12px 12px 40px 12px; /* extra bottom like a polaroid */
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-  transform: rotate(-1.5deg);
-  transition: transform 0.3s ease;
-}
+    .photo-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 12px 12px 40px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
 
-.photo-card:nth-child(2) {
-  transform: rotate(1.5deg);
-}
+    .photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      background: #f3edf7;
+      border-radius: 4px;
+      padding: 6px;
+    }
 
-.photo-card:nth-child(3) {
-  transform: rotate(-0.8deg);
-}
+    .caption {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      text-align: center;
+      font-style: italic;
+    }
 
-.photo-card:hover {
-  transform: scale(1.03) rotate(0deg);
-}
-    
-      .photo-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: contain;        
-  background: #f3edf7;        
-  border-radius: 4px;
-  padding: 6px;
-}
-    
-.caption {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: #5a3340;
-  text-align: center;
-  font-style: italic;
-  font-family: 'Playfair Display', serif;
-}
-  
-  .rose-frame {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+    @media (max-width: 768px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
 
-.rose {
-  position: absolute;
-  font-size: 34px;
-  opacity: 0.18;
-}
+    /* ───────── CLOSING ───────── */
+    .closing {
+      text-align: center;
+      margin: 80px 0;
+    }
 
-/* ─── TOP LEFT ─── */
-.tl-corner { top: 20px; left: 20px; }
-.tl-horizontal { top: 20px; left: 80px; }
-.tl-vertical { top: 80px; left: 20px; }
+    .closing-love {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #6b4fa3;
+      margin-bottom: 20px;
+    }
 
-/* ─── TOP RIGHT ─── */
-.tr-corner { top: 20px; right: 20px; }
-.tr-horizontal { top: 20px; right: 80px; }
-.tr-vertical { top: 80px; right: 20px; }
+    .voice-btn {
+      background: #f2b8d8;
+    }
 
-/* ─── BOTTOM LEFT ─── */
-.bl-corner { bottom: 20px; left: 20px; }
-.bl-horizontal { bottom: 20px; left: 80px; }
-.bl-vertical { bottom: 80px; left: 20px; }
-
-/* ─── BOTTOM RIGHT ─── */
-.br-corner { bottom: 20px; right: 20px; }
-.br-horizontal { bottom: 20px; right: 80px; }
-.br-vertical { bottom: 80px; right: 20px; }
-
-    .container {
-  position: relative;
-  z-index: 1;
-}
-.closing {
-  margin: 100px auto 60px;
-  text-align: center;
-}
-
-.closing-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #4a2c3a;
-  margin-bottom: 30px;
-}
-
-.closing-love {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-style: italic;
-  color: #6b4fa3;
-}
-      .closing {
-  animation: fadeIn 2s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-    /* floating hearts */
+    /* ───────── FOREGROUND HEARTS ───────── */
     .heart {
       position: fixed;
       bottom: -10px;
       font-size: 20px;
       animation: floatUp 8s linear infinite;
       opacity: 0.7;
+      z-index: 0;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
-}
-    .floating-hearts {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.floating-hearts span {
-  position: absolute;
-  bottom: -10%;
-  font-size: 24px;
-  opacity: 0.15;
-  animation: bgFloat 30s linear infinite;
-}
-
-@keyframes bgFloat {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120vh); }
-}
- #envelope-screen {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #fde4ef, #efe6ff);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-.envelope {
-  width: 200px;
-  height: 130px;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.envelope-body {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border-radius: 6px;
-  position: absolute;
-  bottom: 0;
-}
-
-.envelope-top {
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-bottom: 65px solid #f2b8d8;
-  position: absolute;
-  top: 0;
-  transform-origin: top;
-  transition: transform 1s ease;
-}
-
-.envelope-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-
-#password {
-  padding: 10px 14px;
-  border-radius: 20px;
-  border: none;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-#error {
-  color: #a33;
-  display: none;
-  font-size: 0.9rem;
-}
-   
+      from { transform: translateY(0); opacity: 0; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
   </style>
-</head>
-
-<div class="rose-frame">
-  <!-- Top Left -->
-  <span class="rose tl-corner">🌹</span>
-  <span class="rose tl-horizontal">🌹</span>
-  <span class="rose tl-vertical">🌹</span>
-
-  <!-- Top Right -->
-  <span class="rose tr-corner">🌹</span>
-  <span class="rose tr-horizontal">🌹</span>
-  <span class="rose tr-vertical">🌹</span>
-
-  <!-- Bottom Left -->
-  <span class="rose bl-corner">🌹</span>
-  <span class="rose bl-horizontal">🌹</span>
-  <span class="rose bl-vertical">🌹</span>
-
-  <!-- Bottom Right -->
-  <span class="rose br-corner">🌹</span>
-  <span class="rose br-horizontal">🌹</span>
-  <span class="rose br-vertical">🌹</span>
-</div>
-  
-<div class="floating-hearts">
-  <span style="left:10%">💗</span>
-  <span style="left:30%">💜</span>
-  <span style="left:50%">💕</span>
-  <span style="left:70%">💜</span>
-  <span style="left:90%">💗</span>
-</div>
-
-  <div class="container">
-    <h1>Xitlalic 🤍</h1>
-    <h2>the most beautiful/gorgeous/pretty/sexcy woman ever</h2>
-
-    <div class="music">
-      <button onclick="toggleMusic()">Click to Play Song as You Read 🎶</button>
-      <audio id="song">
-        <source src="congratulations.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-    <div class="letter">
-      <p>
-        Taly! I really miss you today (I’m writing this a week in the past but I know I will still be missing you)!! Sorry I couldnt be there on your favorite holiday big head.. Got two dang tests on Monday on cardiology; how relevant, right?!? But Im very excited to see you this following week and share time together. I hope you like your flowers, I gave them an idea and I hope they execute it well?! haha… 
-      </p>
-
-      <p>
-        This website has taken me hours even with the help of chatgpt; even tho there are not much details to it its been real tough to just work out the small details there is. So even though its simple I hope you appreciate it.
-      </p>
-
-      <p>
-       Also I used to believe I wasn’t the jealous type and never even thought about it; I thought I was just some nonchalant noncaring guy.. But youve made me realize I can be jealous; and not like in a crazy bad way haha but like in a I want you to myself and youre mine; in a non-controlling and respectful manner type of way..  I dont know where Im going with this.. I’ll still keep this in here i guess haha.. hmmm youve made me realize I can care so much about someone that I can be more vulnerable? that I can feel these emotions or get hurt, which you know im scared of, but youve really let down my walls whether you know it or not.. I may not show it but you make me comfortable and like give myself entirely? 
-      </p>
-
-      <p>
-       I really miss your hugs, I think I took that for granted. Kind of crazy that we went from it being weird to hug as friends to I can probably just hug you for hours. I feel so at home with us being that close. I love when we become still, calm, and quiet and then I can start feeling your heartbeat on my chest. Then the way your head fits right underneath my chin and our arms align.. I think we were meant to fit eachother.. I can fall asleep in your arms so easily as well. Your hugs just make me think of what I believe home to be..
-      </p>
-
-      <p>
-        I miss your subtle kisses you give me all over. I miss your slight touch on my face and when you rest your hand on my hand. I miss feeling those bony skinny long fingers. I miss your butterfly kisses, I thought it was so weird at first but I really love it now, something about feeling your cheek and your eyelashes tickle my eyes, very intimate. I miss rubbing your nose with my nose while I close my eyes and just being in that moment in time with you rubbing noses. I miss giving you forehead kisses, miss feeling that oil on my lips ahahhaa; and then you move your face all around cause you want kisses everywhere else on your face, Ms needy.. I miss your pretty light brown eyes and staring at eachother, I miss the way they look in the sun as they get even lighter; and your pretty eyelashes just make the perfect combo.. I miss touching and holding your face as I look into your eyes, feeling all the textures (huge pores and fuzzy hair bwahahhahahaha). I miss feeling your arms and back as I hug you ms skinny and bony lady. I miss feeling your thighs and legs, and I like that you noticed thats how I let you know im there when we are in public or around people. But its also because you make me feel safe and you are my ground and whenever I feel overwhelmed, awkward, or just feel like I need to connect with you; I reach out for you. I miss waking up and seeing that beautiful face every morning. I miss doordashing food with you. I miss coming home to you. I miss us struggling and figuring out life together and only having eachother. I miss living life with you and you being my whole world. You make me very happy.
-      </p>
-
-      <p>
-        As we start anew on this journey. I want to make sure I never forget how much you mean to me and how you make me feel. Which is why I wanted to make a website that can be online forever and easy to access? You mean the world to me and I want to be the best ever to you. I want to change my view on relationships and negative thoughts and associations I have of them; just for you. I would love and be so happy to calI you my wife one day. I dont want to lose you again. Stay tuned to have to eat ketchup again, soon… 
-      </p>
-
-      <p>
-        I think you drive me to do more and to be better.. Because I want to be better for us and so that one day we can have a home, kids, a cat or two, and maybe a Mambo… and I think thats how I want to live my life from now on. You know not just for me, but for us? I want you to be intertwined in my mind and I want to stop being selfish and not only have my goals and desires in my head. I want the honeymoon phase to be forever.. I love you taly and I want to show you that I love you, and show everyone else that I love you. I will make sure you are known and heard and that there are clear lines from now on.  
-      </p>
-        
-      <p>
-        You make me very very happy when I’m around you and I want to feel that forever. I hope I make you feel the same…
-      </p>
-
-      <p>
-        Happy Valentine’s Day, my love.
-      </p>
-
-      <div class="signature">
-        Te Amo 🤍
-      </div>
-    </div>
-  </div>
-<div class="photos">
-  <h2>Some Random Photos 📸</h2>
-
-  <div class="gallery">
-    <div class="photo-card">
-       <img src="images/pic1.jpg" alt="Us together">
-      <p class="caption">when you made me the luckiest guy</p>
-    </div>
-
-    <div class="photo-card">
-       <img src="images/pic2.jpg" alt="A special memory">
-      <p class="caption">look at the size of that dome</p>
-    </div>
-
-    <div class="photo-card">
-       <img src="images/pic3.jpg" alt="Love">
-      <p class="caption">in front of our favorite restaurant</p>
-    </div>
-  </div>
-</div>
-  <script>
-
-    function toggleMusic() {
-      const song = document.getElementById("song");
-      if (song.paused) {
-        song.play();
-      } else {
-        song.pause();
-      }
-    }
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "💗";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 8000);
-    }
-
-    setInterval(createHeart, 600);
-
-    function playVoice() {
-  const voice = document.getElementById("voice");
-  voice.play();
-}
-  </script>
-  
-  <div class="closing">
-  <p class="closing-text">
-    I will always choose you.
-  </p>
-
-  <p class="closing-love">
-    I love you, Xitlalic 🤍
-  </p>
-
-  <button class="voice-btn" onclick="playVoice()">
-    my voice :)
-  </button>
-
-  <audio id="voice">
-    <source src="iloveyou.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
-</div>
-
-</body>
-  <head>
-<style>
-CSS ONLY HERE
-</style>
 </head>
 
 <body>
 
+<!-- ENVELOPE -->
 <div id="envelope-screen">
   <div class="envelope">
     <div class="envelope-top"></div>
     <div class="envelope-body"></div>
   </div>
-
   <p class="envelope-text">For Xitlalic 💌</p>
-
-  <input
-    type="password"
-    id="password"
-    placeholder="Enter the password"
-  />
-
+  <input type="password" id="password" placeholder="Enter the password">
   <button onclick="openEnvelope()">Open Letter</button>
-
   <p id="error">That’s not quite right 🤍</p>
 </div>
 
-</body>
-   function openEnvelope() {
-  const correctPassword = "babadook"; 
-  const input = document.getElementById("password").value;
-  const envelopeTop = document.querySelector(".envelope-top");
-  const screen = document.getElementById("envelope-screen");
-  const error = document.getElementById("error");
+<!-- ROSE FRAME -->
+<div class="rose-frame">
+  <span class="rose tl-corner">🌹</span><span class="rose tl-horizontal">🌹</span><span class="rose tl-vertical">🌹</span>
+  <span class="rose tr-corner">🌹</span><span class="rose tr-horizontal">🌹</span><span class="rose tr-vertical">🌹</span>
+  <span class="rose bl-corner">🌹</span><span class="rose bl-horizontal">🌹</span><span class="rose bl-vertical">🌹</span>
+  <span class="rose br-corner">🌹</span><span class="rose br-horizontal">🌹</span><span class="rose br-vertical">🌹</span>
+</div>
 
-  if (input.toLowerCase() === correctPassword) {
-    envelopeTop.style.transform = "rotateX(180deg)";
-    setTimeout(() => {
-      screen.style.opacity = "0";
+<!-- BACKGROUND HEARTS -->
+<div class="floating-hearts">
+  <span style="left:10%">💗</span><span style="left:30%">💜</span><span style="left:50%">💕</span>
+  <span style="left:70%">💜</span><span style="left:90%">💗</span>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+  <h1>Xitlalic 🤍</h1>
+  <h2>the most beautiful woman ever</h2>
+
+  <div class="music">
+    <button onclick="toggleMusic()">Play Our Song 🎶</button>
+    <audio id="song"><source src="congratulations.mp3"></audio>
+  </div>
+
+  <!-- 🔴 PASTE YOUR FULL LETTER HERE 🔴 -->
+  <div class="letter">
+    <p>PASTE YOUR FULL LETTER TEXT HERE — KEEP EACH PARAGRAPH IN &lt;p&gt; TAGS.</p>
+    <div class="signature">Te Amo 🤍</div>
+  </div>
+</div>
+
+<!-- PHOTOS -->
+<div class="gallery">
+  <div class="photo-card"><img src="images/pic1.jpg"><p class="caption">when you made me the luckiest guy</p></div>
+  <div class="photo-card"><img src="images/pic2.jpg"><p class="caption">look at the size of that dome</p></div>
+  <div class="photo-card"><img src="images/pic3.jpg"><p class="caption">our favorite place</p></div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <p class="closing-love">I love you, Xitlalic 🤍</p>
+  <button class="voice-btn" onclick="playVoice()">hear my voice 🎙️</button>
+  <audio id="voice"><source src="iloveyou.mp3"></audio>
+</div>
+
+<script>
+  function openEnvelope() {
+    const correctPassword = "babadook";
+    const input = document.getElementById("password").value;
+    const screen = document.getElementById("envelope-screen");
+    const flap = document.querySelector(".envelope-top");
+    const error = document.getElementById("error");
+
+    if (input.toLowerCase() === correctPassword) {
+      flap.style.transform = "rotateX(180deg)";
       setTimeout(() => {
-        screen.style.display = "none";
-      }, 1000);
-    }, 600);
-  } else {
-    error.style.display = "block";
+        screen.style.opacity = "0";
+        setTimeout(() => screen.style.display = "none", 1000);
+      }, 600);
+    } else {
+      error.style.display = "block";
+    }
   }
-}
 
+  function toggleMusic() {
+    const song = document.getElementById("song");
+    song.paused ? song.play() : song.pause();
+  }
+
+  function playVoice() {
+    document.getElementById("voice").play();
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }
+
+  setInterval(createHeart, 600);
+</script>
+
+</body>
 </html>
+
