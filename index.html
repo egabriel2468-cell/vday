@@ -118,17 +118,16 @@
 .photo-card:hover {
   transform: scale(1.03) rotate(0deg);
 }
-    .photo-inner {
-  overflow: hidden;
-  border-radius: 4px;
-  transform: scale(1.25); /* counter-scale */
-}
+    
       .photo-card img {
   width: 100%;
   height: 260px;
-  object-fit: cover;
-  transform: scale(0.6);
+  object-fit: contain;        
+  background: #f3edf7;        
+  border-radius: 4px;
+  padding: 6px;
 }
+    
 .caption {
   margin-top: 12px;
   font-size: 0.95rem;
@@ -311,19 +310,16 @@
 
   <div class="gallery">
     <div class="photo-card">
-      <div class="photo-inner">
        <img src="images/pic1.jpg" alt="Us together">
       <p class="caption">when you made me the luckiest guy</p>
     </div>
 
     <div class="photo-card">
-      <div class="photo-inner">
        <img src="images/pic2.jpg" alt="A special memory">
       <p class="caption">look at the size of that dome</p>
     </div>
 
     <div class="photo-card">
-      <div class="photo-inner">
        <img src="images/pic3.jpg" alt="Love">
       <p class="caption">in front of our favorite restaurant</p>
     </div>
