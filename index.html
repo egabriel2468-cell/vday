@@ -38,6 +38,21 @@
       text-align: center;
       margin-bottom: 10px;
     }
+    .voice-btn {
+  margin-top: 25px;
+  background: #f2b8d8; /* soft pink */
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.voice-btn:hover {
+  background: #e79ac5;
+}
 
     h2 {
       text-align: center;
@@ -370,6 +385,21 @@
   <p class="closing-love">
     I love you, Xitlalic 🤍
   </p>
+
+  <button class="voice-btn" onclick="playVoice()">
+    Hear me say it 🎙️
+  </button>
+
+  <audio id="voice">
+    <source src="iloveyou.mp3" type="audio/mpeg">
+  </audio>
+</div>
+  
+    function playVoice() {
+  const voice = document.getElementById("voice");
+  voice.play();
+}
+
 </div>
 
 </body>
