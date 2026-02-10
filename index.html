@@ -125,6 +125,30 @@
   line-height: 1.4;
   font-style: italic;
 }
+    .rose-border {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rose-border::before,
+.rose-border::after {
+  content: "🌹 🌸 🌹 🌸 🌹 🌸";
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.15;
+  width: 100%;
+  text-align: center;
+}
+
+.rose-border::before {
+  top: 15px;
+}
+
+.rose-border::after {
+  bottom: 15px;
+}
 
 
     /* floating hearts */
@@ -190,6 +214,8 @@
 </head>
 
 <body>
+  <div class="rose-border"></div>
+
   <div class="floating-hearts"></div>
 
   <div class="container">
