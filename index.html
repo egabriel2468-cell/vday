@@ -93,6 +93,11 @@
   .gallery {
     grid-template-columns: 1fr !important;
   }
+
+  .photo-card img {
+    height: 260px;
+  }
+}
       .photo-card {
   background: #ffffff;
   border-radius: 6px;
@@ -229,14 +234,9 @@
 }
 
 @keyframes bgFloat {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-120vh);
-  }
-
-    }
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
     
   </style>
 </head>
