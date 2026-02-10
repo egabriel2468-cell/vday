@@ -157,6 +157,10 @@
   bottom: 20px;
   right: 20px;
 }
+    .container {
+  position: relative;
+  z-index: 1;
+}
 
     /* floating hearts */
     .heart {
@@ -191,7 +195,7 @@
 .floating-hearts span {
   position: absolute;
   bottom: -10%;
-  font-size: 20px;
+  font-size: 24px;
   opacity: 0.15;
   animation: bgFloat 30s linear infinite;
 }
@@ -203,7 +207,6 @@
   to {
     transform: translateY(-120vh);
   }
-}
 
     }
     
@@ -225,8 +228,6 @@
   <span style="left:70%">💜</span>
   <span style="left:90%">💗</span>
 </div>
-
-  <div class="floating-hearts"></div>
 
   <div class="container">
     <h1>To: Xitlalic ❤️</h1>
