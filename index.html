@@ -154,7 +154,7 @@
   font-family: 'Playfair Display', serif;
 }
   
-  .corner-roses {
+  .rose-frame {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -163,29 +163,30 @@
 
 .rose {
   position: absolute;
-  font-size: 38px;
+  font-size: 34px;
   opacity: 0.18;
 }
 
-.top-left {
-  top: 20px;
-  left: 20px;
-}
+/* ─── TOP LEFT ─── */
+.tl-corner { top: 20px; left: 20px; }
+.tl-horizontal { top: 20px; left: 80px; }
+.tl-vertical { top: 80px; left: 20px; }
 
-.top-right {
-  top: 20px;
-  right: 20px;
-}
+/* ─── TOP RIGHT ─── */
+.tr-corner { top: 20px; right: 20px; }
+.tr-horizontal { top: 20px; right: 80px; }
+.tr-vertical { top: 80px; right: 20px; }
 
-.bottom-left {
-  bottom: 20px;
-  left: 20px;
-}
+/* ─── BOTTOM LEFT ─── */
+.bl-corner { bottom: 20px; left: 20px; }
+.bl-horizontal { bottom: 20px; left: 80px; }
+.bl-vertical { bottom: 80px; left: 20px; }
 
-.bottom-right {
-  bottom: 20px;
-  right: 20px;
-}
+/* ─── BOTTOM RIGHT ─── */
+.br-corner { bottom: 20px; right: 20px; }
+.br-horizontal { bottom: 20px; right: 80px; }
+.br-vertical { bottom: 80px; right: 20px; }
+
     .container {
   position: relative;
   z-index: 1;
@@ -262,12 +263,26 @@
   </style>
 </head>
 
-<body>
-  <div class="corner-roses">
-  <span class="rose top-left">🌹</span>
-  <span class="rose top-right">🌹</span>
-  <span class="rose bottom-left">🌹</span>
-  <span class="rose bottom-right">🌹</span>
+<div class="rose-frame">
+  <!-- Top Left -->
+  <span class="rose tl-corner">🌹</span>
+  <span class="rose tl-horizontal">🌹</span>
+  <span class="rose tl-vertical">🌹</span>
+
+  <!-- Top Right -->
+  <span class="rose tr-corner">🌹</span>
+  <span class="rose tr-horizontal">🌹</span>
+  <span class="rose tr-vertical">🌹</span>
+
+  <!-- Bottom Left -->
+  <span class="rose bl-corner">🌹</span>
+  <span class="rose bl-horizontal">🌹</span>
+  <span class="rose bl-vertical">🌹</span>
+
+  <!-- Bottom Right -->
+  <span class="rose br-corner">🌹</span>
+  <span class="rose br-horizontal">🌹</span>
+  <span class="rose br-vertical">🌹</span>
 </div>
   
 <div class="floating-hearts">
