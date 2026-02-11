@@ -264,13 +264,21 @@
       font-size: 20px;
       animation: floatUp 8s linear infinite;
       opacity: 0.7;
-      z-index: 0;
     }
 
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 0; }
-      to { transform: translateY(-110vh); opacity: 0; }
-    }
+     @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+}
     .valentine-question {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
