@@ -513,9 +513,32 @@
   }
 
   function playVoice() {
-    document.getElementById("voice").play();
+  const music = document.getElementById("song");
+  const voice = document.getElementById("voice");
+
+  // Fade out music if it's playing
+  if (!music.paused) {
+    let fadeAudio = setInterval(() => {
+      if (music.volume > 0.05) {
+        music.volume -= 0.05;
+      } else {
+        music.pause();
+        music.volume = 1; // reset for future use
+        clearInterval(fadeAudio);
+      }
+    }, 100);
   }
 
+  // Slight emotional pause before voice plays
+  setTimeout(() => {
+    voice.play();
+  }, 900); // 0.9 second pause
+}
+document.getElementById("voice").addEventListener("ended", function() {
+  const music = document.getElementById("song");
+  music.play();
+});
+  
   function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
