@@ -74,6 +74,24 @@
   z-index: 2;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
+.wax-seal {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle at 30% 30%, #ff6b81, #b3122f);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  z-index: 3;
+  transition: opacity 0.6s ease;
+}
 
     .envelope-text {
       font-family: 'Playfair Display', serif;
@@ -235,6 +253,33 @@
       text-align: center;
       font-style: italic;
     }
+    .photo-card {
+  position: relative;
+}
+
+/* Tape base style */
+.photo-card::before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 22px;
+  background: rgba(255,255,255,0.65);
+  top: -12px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Left tape */
+.taped-left::before {
+  left: 20px;
+  transform: rotate(-12deg);
+}
+
+/* Right tape */
+.taped-right::before {
+  right: 20px;
+  transform: rotate(12deg);
+}
 
     @media (max-width: 768px) {
       .gallery { grid-template-columns: 1fr; }
@@ -314,9 +359,10 @@
   <p class="valentine-hint">PW still to come 💕</p>
 
   <div class="envelope">
-    <div class="envelope-flap"></div>
-    <div class="envelope-pocket"></div>
-  </div>
+  <div class="envelope-flap"></div>
+  <div class="envelope-pocket"></div>
+  <div class="wax-seal">❤️</div>
+</div>
 
   <p class="envelope-text">For Xitlalic 💌</p>
 
@@ -392,8 +438,8 @@
 
 <!-- PHOTOS -->
 <div class="gallery">
-  <div class="photo-card"><img src="images/pic1.jpg"><p class="caption">when you made me the luckiest guy</p></div>
-  <div class="photo-card"><img src="images/pic2.jpg"><p class="caption">look at the size of that dome</p></div>
+  <div class="photo-card taped-left"><img src="images/pic1.jpg"><p class="caption">when you made me the luckiest guy</p></div>
+  <div class="photo-card taped-right"><img src="images/pic2.jpg"><p class="caption">look at the size of that dome</p></div>
   <div class="photo-card"><img src="images/pic3.jpg"><p class="caption">in front of our favorite restaraunt</p></div>
 </div>
 
@@ -411,9 +457,11 @@
     const screen = document.getElementById("envelope-screen");
     const flap = document.querySelector(".envelope-flap");
     const error = document.getElementById("error");
+    const seal = document.querySelector(".wax-seal");
 
     if (input.toLowerCase() === correctPassword) {
       flap.style.transform = "rotateX(180deg)";
+      seal.style.opacity = "0";
       setTimeout(() => {
         screen.style.opacity = "0";
         setTimeout(() => screen.style.display = "none", 1000);
