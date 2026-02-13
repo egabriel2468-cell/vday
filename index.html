@@ -210,12 +210,22 @@
 
     /* ───────── CONTENT ───────── */
     .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 60px 25px;
-      position: relative;
-      z-index: 1;
-    }
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 25px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+    @media (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
+}
 
     h1 {
       font-family: 'Playfair Display', serif;
