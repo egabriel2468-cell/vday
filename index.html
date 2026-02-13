@@ -516,27 +516,39 @@
   const music = document.getElementById("song");
   const voice = document.getElementById("voice");
 
-  // Fade out music if it's playing
+  // Fade out music smoothly
   if (!music.paused) {
-    let fadeAudio = setInterval(() => {
-      if (music.volume > 0.05) {
-        music.volume -= 0.05;
+    let fadeOut = setInterval(() => {
+      if (music.volume > 0.02) {
+        music.volume -= 0.02;
       } else {
+        music.volume = 0;
         music.pause();
-        music.volume = 1; // reset for future use
-        clearInterval(fadeAudio);
+        clearInterval(fadeOut);
       }
     }, 100);
   }
 
-  // Slight emotional pause before voice plays
+  // Slight emotional pause before voice
   setTimeout(() => {
     voice.play();
-  }, 900); // 0.9 second pause
+  }, 1000);
 }
 document.getElementById("voice").addEventListener("ended", function() {
   const music = document.getElementById("song");
+
+  music.volume = 0;
   music.play();
+
+  // Fade music back in slowly
+  let fadeIn = setInterval(() => {
+    if (music.volume < 0.98) {
+      music.volume += 0.02;
+    } else {
+      music.volume = 1;
+      clearInterval(fadeIn);
+    }
+  }, 120);
 });
   
   function createHeart() {
