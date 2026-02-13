@@ -511,10 +511,11 @@ February 14, 2026
       seal.style.opacity = "0";
       setTimeout(() => {
         screen.style.opacity = "0";
-        setTimeout(() => screen.style.display = "none";
-        document.querySelector(".container").style.opacity = "1";
-                   
-                  }, 1000);
+        setTimeout(() => {
+  screen.style.display = "none";
+  document.querySelector(".container").style.opacity = "1";
+}, 1000);
+
       }, 600);
     } else {
       error.style.display = "block";
