@@ -140,6 +140,10 @@
       display: none;
       font-size: 0.9rem;
     }
+    .container {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
 
     /* ───────── ROSE FRAME ───────── */
     .rose-frame {
@@ -472,6 +476,10 @@
         Happy Valentine’s Day, my love.
       </p>
     <div class="signature">Te Amo 🤍</div>
+    <p style="opacity:0.6; font-size:0.85rem; margin-top:20px;">
+February 14, 2026
+</p>
+
   </div>
 </div>
 
@@ -503,7 +511,10 @@
       seal.style.opacity = "0";
       setTimeout(() => {
         screen.style.opacity = "0";
-        setTimeout(() => screen.style.display = "none", 1000);
+        setTimeout(() => screen.style.display = "none";
+        document.querySelector(".container").style.opacity = "1";
+                   
+                  }, 1000);
       }, 600);
     } else {
       error.style.display = "block";
