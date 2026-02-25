@@ -538,6 +538,47 @@
   padding: 80px 25px;
   border-radius: 20px;
 }
+    /* ───────── JOURNAL MUSIC BOX ───────── */
+
+.journal-music {
+  background: rgba(255,255,255,0.75);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 25px 0 30px;
+
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,0.8),
+    0 8px 20px rgba(0,0,0,0.05);
+
+  backdrop-filter: blur(4px);
+  max-width: 260px;
+}
+
+.journal-music-label {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+    .mini-player button {
+  background: #f2e6ff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mini-player button:hover {
+  background: #e4d4ff;
+}
+
+/* Make default audio look softer */
+.journal-music audio {
+  width: 100%;
+  height: 30px;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
@@ -675,7 +716,12 @@ February 14, 2026
 
       jksacbjksancjk
     </p>
-
+<div class="journal-music">
+  <p class="journal-music-label">memory soundtrack ♫</p>
+  <div class="mini-player">
+  <button onclick="playJournalSong(this)">play ♡</button>
+  <audio src="songs/journal1.mp3"></audio>
+</div>
     <!-- IMAGE SLOT -->
     <div class="journal-images">
       <img src="images/journal1.jpg" alt="Memory 1">
@@ -779,6 +825,17 @@ const observer = new IntersectionObserver((entries) => {
 journalEntries.forEach(entry => {
   observer.observe(entry);
 });
+  function playJournalSong(button) {
+  const audio = button.nextElementSibling;
+
+  if (audio.paused) {
+    audio.play();
+    button.textContent = "pause ♡";
+  } else {
+    audio.pause();
+    button.textContent = "play ♡";
+  }
+}
 </script>
 
 </body>
